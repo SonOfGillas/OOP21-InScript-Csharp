@@ -1,0 +1,13 @@
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.exe
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.deps.json
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.runtimeconfig.json
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.runtimeconfig.dev.json
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.dll
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\bin\Debug\netcoreapp3.1\Inscript.pdb
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.csprojAssemblyReference.cache
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.AssemblyInfoInputs.cache
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.AssemblyInfo.cs
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.csproj.CoreCompileInputs.cache
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.dll
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.pdb
+C:\Users\utente1\OneDrive\Documenti\OOP\Progetto OOP (2021-2022)\OOP21-InScript-Csharp\Inscript\obj\Debug\netcoreapp3.1\Inscript.genruntimeconfig.cache

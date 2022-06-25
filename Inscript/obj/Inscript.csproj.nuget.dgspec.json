@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Prova1.csproj": {}
+    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {}
   },
   "projects": {
-    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Prova1.csproj": {
+    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Prova1.csproj",
-        "projectName": "Prova1",
-        "projectPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Prova1.csproj",
+        "projectUniqueName": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
+        "projectName": "Inscript",
+        "projectPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
         "packagesPath": "C:\\Users\\utente1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\obj\\",
+        "outputPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\utente1\\AppData\\Roaming\\NuGet\\NuGet.Config",

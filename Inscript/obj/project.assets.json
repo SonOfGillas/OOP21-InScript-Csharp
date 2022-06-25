@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Inscript.csproj",
+      "projectUniqueName": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
       "projectName": "Inscript",
-      "projectPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\Inscript.csproj",
+      "projectPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
       "packagesPath": "C:\\Users\\utente1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Prova1\\obj\\",
+      "outputPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\utente1\\AppData\\Roaming\\NuGet\\NuGet.Config",
