@@ -1,6 +1,7 @@
 ﻿using System;
 using shared;
 using cards;
+using gamemaster;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,23 @@ namespace drawphasemanager
             _playerAI = playerAI;
         }
 
+        public void HandleEffect()
+        {
+
+            selectEventAndPlayer(ActivationEvent.EVERYDRAW, _playerAI);
+            selectEventAndPlayer(ActivationEvent.EVERYDRAW, _player);
+
+            if (_isTheAITurn)
+            {
+                selectEventAndPlayer(ActivationEvent.MYDRAW, _playerAI);
+                selectEventAndPlayer(ActivationEvent.ENEMYDRAW, _player);
+            } else
+            {
+                selectEventAndPlayer(ActivationEvent.MYDRAW, _player);
+                selectEventAndPlayer(ActivationEvent.ENEMYDRAW, _playerAI);
+            }
+        }
+
         public void firstDraw()
         {
 
@@ -46,6 +64,27 @@ namespace drawphasemanager
 
         }
 
+        public void draw(bool isTheAITurn)
+        {
+            _isTheAITurn = isTheAITurn;
+
+            if (_isTheAITurn && _playerAI.Deck.Count > 0)
+            {
+                updatePlacementRounds(_playerAI);
+                restoreMana(_playerAI);
+                generalDraw(_playerAI);
+
+                HandleEffect();
+            } else if (_player.Deck.Count > 0)
+            {
+                updatePlacementRounds(_player);
+                restoreMana(_player);
+                generalDraw(_player);
+
+                HandleEffect();
+            }
+        }
+
         private void generalDraw(Player player)
         {
             IList<Card> tmpDeck = player.Deck;
@@ -55,31 +94,55 @@ namespace drawphasemanager
             {
                 int randInt = _rng.Next() % (tmpDeck.Count);
                 int index = Math.Abs(randInt);
-                int i = 0;
 
-                IEnumerator<Card> iterCard = tmpDeck.GetEnumerator();
-                for (;i < index; i++)
-                {
-                    iterCard.MoveNext();
-                }
-                tmpHand.Add(iterCard.Current);
-                tmpDeck.Remove(iterCard.Current);
+                tmpHand.Add(tmpDeck.ElementAt(index));
+                tmpDeck.RemoveAt(index);
             }
-        }
-
-        public void draw(bool isTheAITurn)
-        {
-
         }
 
         public void drawWithoutMana(Player player)
         {
-            
+            generalDraw(player);
         }
 
-        public void HandleEffect()
+        private void selectEventAndPlayer(ActivationEvent event_, Player player) 
         {
 
+            IList<Card?> tmpBoard = player.CurrentBoard;
+
+            for (int pos = 0; pos <= tmpBoard.Count - 1; pos++)
+            {
+                if(tmpBoard.ElementAt(pos) != null)
+                {
+                    Card cardSaaved = tmpBoard.ElementAt(pos);
+
+                    /* if (Card) */
+                }
+            }
+
+        }
+
+        private void restoreMana(Player player)
+        {
+            if (player.Mana + IGameMaster.MANA_PLUS_ONE <= IGameMaster.MAXIMUM_MANA)
+            {
+                player.Mana = IGameMaster.MAXIMUM_MANA;
+            }
+
+            player.CurrentMana = player.Mana - player.CurrentMana;
+        }
+
+        private void updatePlacementRounds(Player player)
+        {
+            IList<Card> tmpBoard = player.CurrentBoard;
+
+            foreach (var card in tmpBoard)
+            {
+                if (card != null)
+                {
+                    /* card.get set placement */
+                }
+            }
         }
 
     }
