@@ -16,6 +16,7 @@ namespace shared
         public bool IsAiPlayer { get ; }
         public IList<Card> Deck { get ; }
         public IList<Card> Hand  { get ;  }
+        public IList<Card?> CurrentBoard { get ; }
 
         public int Mana
         {
@@ -27,11 +28,6 @@ namespace shared
         {
             get => _currentMana ;
             set => _currentMana = _currentMana + value;
-        }
-
-        public int CurrentBoard
-        {
-            get => _currentBoard.take(NUM_CARD_BOARD);
         }
 
         public Player(bool isAiplayer,  List<Card> deck,  int lifePoints,  int mana,  int currentMana,  List<Card?> currentBoard,  List<Card> hand) {
