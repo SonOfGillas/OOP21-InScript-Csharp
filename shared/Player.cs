@@ -7,7 +7,7 @@ namespace shared
 
     public class Player
     {
-        public static int NUM_CARD_BOARD=5;
+        public static readonly int NumCardBoard = 5;
 
         private int _mana;
         private int _currentMana;

@@ -10,13 +10,13 @@ namespace drawphasemanager
 {
     public interface IDrawPhaseManager : IPhaseManager
     {
-        public const int INITIAL_CARD_IN_THE_HAND = 3;
-        public const int NO_MORE_CARD = 0;
-        void draw(bool isTheAITurn);
+        public static readonly int InitialCardInTheHand = 3;
+        public static readonly int NoMoreCard = 0;
+        void Draw(bool isTheAITurn);
 
-        void firstDraw();
+        void FirstDraw();
 
-        void drawWithoutMana(Player player);
+        void DrawWithoutMana(Player player);
     }
 
     public class DrawPhaseManagerImpl : IDrawPhaseManager
@@ -37,60 +37,60 @@ namespace drawphasemanager
         public void HandleEffect()
         {
 
-            selectEventAndPlayer(ActivationEvent.EVERYDRAW, _playerAI);
-            selectEventAndPlayer(ActivationEvent.EVERYDRAW, _player);
+            SelectEventAndPlayer(ActivationEvent.EVERYDRAW, _playerAI);
+            SelectEventAndPlayer(ActivationEvent.EVERYDRAW, _player);
 
             if (_isTheAITurn)
             {
-                selectEventAndPlayer(ActivationEvent.MYDRAW, _playerAI);
-                selectEventAndPlayer(ActivationEvent.ENEMYDRAW, _player);
+                SelectEventAndPlayer(ActivationEvent.MYDRAW, _playerAI);
+                SelectEventAndPlayer(ActivationEvent.ENEMYDRAW, _player);
             } else
             {
-                selectEventAndPlayer(ActivationEvent.MYDRAW, _player);
-                selectEventAndPlayer(ActivationEvent.ENEMYDRAW, _playerAI);
+                SelectEventAndPlayer(ActivationEvent.MYDRAW, _player);
+                SelectEventAndPlayer(ActivationEvent.ENEMYDRAW, _playerAI);
             }
         }
 
-        public void firstDraw()
+        public void FirstDraw()
         {
 
-            IEnumerable<int> range = Enumerable.Range(0, IDrawPhaseManager.INITIAL_CARD_IN_THE_HAND);
+            IEnumerable<int> range = Enumerable.Range(0, IDrawPhaseManager.InitialCardInTheHand);
 
             foreach(var elem in range)
             {
-                generalDraw(_player);
-                generalDraw(_playerAI);
+                GeneralDraw(_player);
+                GeneralDraw(_playerAI);
             }
 
         }
 
-        public void draw(bool isTheAITurn)
+        public void Draw(bool isTheAITurn)
         {
             _isTheAITurn = isTheAITurn;
 
             if (_isTheAITurn && _playerAI.Deck.Count > 0)
             {
-                updatePlacementRounds(_playerAI);
-                restoreMana(_playerAI);
-                generalDraw(_playerAI);
+                UpdatePlacementRounds(_playerAI);
+                RestoreMana(_playerAI);
+                GeneralDraw(_playerAI);
 
                 HandleEffect();
             } else if (_player.Deck.Count > 0)
             {
-                updatePlacementRounds(_player);
-                restoreMana(_player);
-                generalDraw(_player);
+                UpdatePlacementRounds(_player);
+                RestoreMana(_player);
+                GeneralDraw(_player);
 
                 HandleEffect();
             }
         }
 
-        private void generalDraw(Player player)
+        private void GeneralDraw(Player player)
         {
             IList<Card> tmpDeck = player.Deck;
             IList<Card> tmpHand = player.Hand;
 
-            if (tmpDeck.Count > IDrawPhaseManager.NO_MORE_CARD)
+            if (tmpDeck.Count > IDrawPhaseManager.NoMoreCard)
             {
                 int randInt = _rng.Next() % (tmpDeck.Count);
                 int index = Math.Abs(randInt);
@@ -100,12 +100,12 @@ namespace drawphasemanager
             }
         }
 
-        public void drawWithoutMana(Player player)
+        public void DrawWithoutMana(Player player)
         {
-            generalDraw(player);
+            GeneralDraw(player);
         }
 
-        private void selectEventAndPlayer(ActivationEvent event_, Player player) 
+        private void SelectEventAndPlayer(ActivationEvent event_, Player player) 
         {
 
             IList<Card?> tmpBoard = player.CurrentBoard;
@@ -122,17 +122,17 @@ namespace drawphasemanager
 
         }
 
-        private void restoreMana(Player player)
+        private void RestoreMana(Player player)
         {
-            if (player.Mana + IGameMaster.MANA_PLUS_ONE <= IGameMaster.MAXIMUM_MANA)
+            if (player.Mana + IGameMaster.ManaPlusOne <= IGameMaster.MaximumMana)
             {
-                player.Mana = IGameMaster.MAXIMUM_MANA;
+                player.Mana = IGameMaster.MaximumMana;
             }
 
             player.CurrentMana = player.Mana - player.CurrentMana;
         }
 
-        private void updatePlacementRounds(Player player)
+        private void UpdatePlacementRounds(Player player)
         {
             IList<Card> tmpBoard = player.CurrentBoard;
 
