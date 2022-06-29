@@ -11,12 +11,12 @@ namespace shared
 
         private int _mana;
         private int _currentMana;
-        private IList<Card?> _currentBoard;
+        private IList<Card> _currentBoard;
 
         public bool IsAiPlayer { get ; }
         public IList<Card> Deck { get ; }
         public IList<Card> Hand  { get ;  }
-        public IList<Card?> CurrentBoard { get ; }
+        public IList<Card> CurrentBoard { get ; }
 
         public int Mana
         {
