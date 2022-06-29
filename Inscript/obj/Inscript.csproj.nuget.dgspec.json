@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {}
+    "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {}
   },
   "projects": {
-    "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {
+    "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
+        "projectUniqueName": "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
         "projectName": "Inscript",
-        "projectPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
-        "packagesPath": "C:\\Users\\utente1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\obj\\",
+        "projectPath": "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
+        "packagesPath": "C:\\Users\\SonOfGillas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\utente1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SonOfGillas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,12 +49,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.26, 3.1.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

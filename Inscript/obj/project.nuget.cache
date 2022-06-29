@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "kbSc/zz7mmVGfMEPSi0X28aacZpxHw8cxf4cPWIhfX2CEE168XQ1G0ZgcfRAz9CPHU5LdOJ1N63pplFNaSjK+g==",
+  "dgSpecHash": "G5vFmRoioXvpEA43mWO42bCPml8PvIsUt64B3FZHEc8wv60AqaUSy6RjuL3h5BuA4J8g9G8JEYLrHFRB+XEvew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\utente1\\OneDrive\\Documenti\\OOP\\Progetto OOP (2021-2022)\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\SonOfGillas\\myFoulder\\Istruzione\\universita\\secondo_anno\\primo_semestre\\oop\\ProgettoOOP\\OOP21-InScript-Csharp\\Inscript\\Inscript.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SonOfGillas\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.26\\microsoft.netcore.app.host.win-x64.3.1.26.nupkg.sha512",
+    "C:\\Users\\SonOfGillas\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\SonOfGillas\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\SonOfGillas\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
