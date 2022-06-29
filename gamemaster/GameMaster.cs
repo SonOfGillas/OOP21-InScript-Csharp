@@ -2,6 +2,8 @@
 using cards;
 using shared;
 using drawphasemanager;
+using mainphasemanager;
+using battlephasemanager;
 
 namespace gamemaster
 {
@@ -13,21 +15,38 @@ namespace gamemaster
     class GameMaster : IGameMaster
     {
 
-        private Player humanPlayer;
-        private Player aiPlayer;
+        public Player HumanPlayer { get; }
+        public Player AiPlayer { get;  }
 
-        bool isTheAIturn; // TODO verify if change must be do here or in the board controller
+        bool isTheAIturn;
 
-        private IDrawPhaseManager drawPhaseManager;
-        private IMainPhaseManager mainPhaseManager;
-        private IBattlePhaseManager battlePhaseManager;
-        private IMainPhaseManagerIA mainPhaseManagerIA;
+        public IDrawPhaseManager DrawPhaseManager { get; }
+        public IMainPhaseManager MainPhaseManager { get;}
+        public IBattlePhaseManager BattlePhaseManager { get; }
+        public IMainPhaseManagerIA MainPhaseManagerIA { get;  }
 
-        public GameMaster(IList<Card> humanPlayerDeck, IList<Card> aiPlayerDeck)
+        public GameMaster(List<Card> humanPlayerDeck, List<Card> aiPlayerDeck)
         {
+             new List<Card>(Player.NumCardBoard);
 
+            HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
+            AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
+            isTheAIturn = false;
+            DrawPhaseManager = new DrawPhaseManagerImpl(HumanPlayer, AiPlayer);
+            MainPhaseManager = new MainPhaseManagerImpl(HumanPlayer, AiPlayer);
+            BattlePhaseManager = new BattlePhaseManager(HumanPlayer, AiPlayer);
+            MainPhaseManagerIA = new MainPhaseManagerIA(HumanPlayer, AiPlayer);
         }
 
-        public void StartGame() { }
+        public void StartGame()
+        {
+            DrawPhaseManager.FirstDraw();
+
+            DrawPhaseManager.Draw(true);
+            MainPhaseManagerIA.StartAIMainPhase();
+
+            DrawPhaseManager.Draw(false);
+        }
+
     }
 }
