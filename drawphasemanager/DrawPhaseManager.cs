@@ -1,7 +1,6 @@
 ﻿using System;
 using shared;
 using cards;
-using gamemaster;
 
 using System.Collections.Generic;
 using System.Linq;

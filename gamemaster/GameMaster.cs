@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using cards;
 using shared;
+using drawphasemanager;
+
 
 namespace gamemaster
 {
@@ -15,12 +17,12 @@ namespace gamemaster
         private Player humanPlayer;
         private Player aiPlayer;
 
-        boolean isTheAIturn; // TODO verify if change must be do here or in the board controller
+        bool isTheAIturn; // TODO verify if change must be do here or in the board controller
 
-        private DrawPhaseManager drawPhaseManager;
-        private MainPhaseManager mainPhaseManager;
-        private BattlePhaseManager battlePhaseManager;
-        private MainPhaseManagerIA mainPhaseManagerIA;
+        private IDrawPhaseManager drawPhaseManager;
+        private IMainPhaseManager mainPhaseManager;
+        private IBattlePhaseManager battlePhaseManager;
+        private IMainPhaseManagerIA mainPhaseManagerIA;
 
         public GameMaster(IList<Card> humanPlayerDeck, IList<Card> aiPlayerDeck)
         {
