@@ -108,7 +108,7 @@ namespace drawphasemanager
         private void SelectEventAndPlayer(ActivationEvent event_, Player player) 
         {
 
-            IList<Card?> tmpBoard = player.CurrentBoard;
+            IList<Card> tmpBoard = player.CurrentBoard;
 
             for (int pos = 0; pos <= tmpBoard.Count - 1; pos++)
             {
@@ -124,9 +124,9 @@ namespace drawphasemanager
 
         private void RestoreMana(Player player)
         {
-            if (player.Mana + IGameMaster.ManaPlusOne <= IGameMaster.MaximumMana)
+            if (player.Mana + GameConst.ManaPlusOne <= GameConst.MaximumMana)
             {
-                player.Mana = IGameMaster.MaximumMana;
+                player.Mana = GameConst.MaximumMana;
             }
 
             player.CurrentMana = player.Mana - player.CurrentMana;

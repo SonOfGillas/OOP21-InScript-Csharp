@@ -1,23 +1,32 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using cards;
+using shared;
 
 namespace gamemaster
 {
 
     public interface IGameMaster
     {
-        public static readonly int DefaultPlayerLife = 0;
-        public static readonly int MinPlayerLife = -10;
-        public static readonly int InitialMana = 0;
-        public static readonly int MaximumMana = 10;
-        public static readonly int ManaPlusOne = 1;
-
-        /**
-         * this is the number of card that each player have in the hand before the drawingPhase
-         */
-        public static readonly int InitialNumCardsInHand = 3;
+        public void StartGame();
     }
-    class GameMaster
+    class GameMaster : IGameMaster
     {
 
+        private Player humanPlayer;
+        private Player aiPlayer;
+
+        boolean isTheAIturn; // TODO verify if change must be do here or in the board controller
+
+        private DrawPhaseManager drawPhaseManager;
+        private MainPhaseManager mainPhaseManager;
+        private BattlePhaseManager battlePhaseManager;
+        private MainPhaseManagerIA mainPhaseManagerIA;
+
+        public GameMaster(IList<Card> humanPlayerDeck, IList<Card> aiPlayerDeck)
+        {
+
+        }
+
+        public void StartGame() { }
     }
 }
