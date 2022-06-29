@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30711.63
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inscript", "Inscript\Inscript.csproj", "{864F7099-44C1-4DC0-B2BE-34B3A5427618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inscript", "Inscript\Inscript.csproj", "{864F7099-44C1-4DC0-B2BE-34B3A5427618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "drawphasemanager", "drawphasemanager\drawphasemanager.csproj", "{4DEB2A19-C2E7-4E2F-A3B7-F2DF1D5A8B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "drawphasemanager", "drawphasemanager\drawphasemanager.csproj", "{4DEB2A19-C2E7-4E2F-A3B7-F2DF1D5A8B94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "shared\shared.csproj", "{8EBEB08D-B372-4109-89B9-FC6B5B2998CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shared", "shared\shared.csproj", "{8EBEB08D-B372-4109-89B9-FC6B5B2998CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mainphasemanager", "mainphasemanager\mainphasemanager.csproj", "{E78E252F-5BA7-4E06-89B9-2B23DF265F52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mainphasemanager", "mainphasemanager\mainphasemanager.csproj", "{E78E252F-5BA7-4E06-89B9-2B23DF265F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamemaster", "gamemaster\gamemaster.csproj", "{57ACA195-CAFF-4E1F-9954-E43D3083D33D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cards", "cards\cards.csproj", "{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cards", "cards\cards.csproj", "{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "battlephasemanager", "battlephasemanager\battlephasemanager.csproj", "{A29E60E4-C859-4EFE-9B9B-86A865A125E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,14 @@ Global
 		{E78E252F-5BA7-4E06-89B9-2B23DF265F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E78E252F-5BA7-4E06-89B9-2B23DF265F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E78E252F-5BA7-4E06-89B9-2B23DF265F52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57ACA195-CAFF-4E1F-9954-E43D3083D33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57ACA195-CAFF-4E1F-9954-E43D3083D33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57ACA195-CAFF-4E1F-9954-E43D3083D33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57ACA195-CAFF-4E1F-9954-E43D3083D33D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91E04F70-86DD-4FA6-A129-18EE91C5FD5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

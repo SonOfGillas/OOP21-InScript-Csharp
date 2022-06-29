@@ -3,7 +3,6 @@ using cards;
 using shared;
 using drawphasemanager;
 
-
 namespace gamemaster
 {
 
