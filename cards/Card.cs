@@ -6,5 +6,10 @@ namespace cards
     {
         public int Attack { get; set; }
         public int Mana { get; set; }
+
+        public Card()
+        {
+
+        }
     }
 }

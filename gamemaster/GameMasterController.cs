@@ -36,6 +36,7 @@ namespace gamemaster
             List<Card>  playerDeck = new List<Card>();
             List<Card> aIDeck = new List<Card>();
             _gameMaster = new GameMaster(playerDeck, aIDeck);
+            _gameMaster.StartGame();
 
             _humanPlayer = _gameMaster.HumanPlayer;
             _aiPlayer = _gameMaster.AiPlayer;

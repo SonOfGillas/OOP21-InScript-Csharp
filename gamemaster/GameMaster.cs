@@ -12,7 +12,7 @@ namespace gamemaster
     {
         public void StartGame();
     }
-    class GameMaster : IGameMaster
+    public class GameMaster : IGameMaster
     {
 
         public Player HumanPlayer { get; }
