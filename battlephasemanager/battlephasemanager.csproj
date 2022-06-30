@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\cards\cards.csproj" />
+    <ProjectReference Include="..\shared\shared.csproj" />
   </ItemGroup>
 
 </Project>
