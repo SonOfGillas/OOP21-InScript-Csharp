@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32616.157
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inscript", "Inscript\Inscript.csproj", "{864F7099-44C1-4DC0-B2BE-34B3A5427618}"
 EndProject
@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cards", "cards\cards.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "battlephasemanager", "battlephasemanager\battlephasemanager.csproj", "{A29E60E4-C859-4EFE-9B9B-86A865A125E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamemaster", "gamemaster\gamemaster.csproj", "{4DF0F535-ACF5-4556-A823-07EB73372B20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gamemaster", "gamemaster\gamemaster.csproj", "{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{52377297-3C34-4A82-8D5A-6DF217C7A024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +49,14 @@ Global
 		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A29E60E4-C859-4EFE-9B9B-86A865A125E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4DF0F535-ACF5-4556-A823-07EB73372B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4DF0F535-ACF5-4556-A823-07EB73372B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4DF0F535-ACF5-4556-A823-07EB73372B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4DF0F535-ACF5-4556-A823-07EB73372B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52377297-3C34-4A82-8D5A-6DF217C7A024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52377297-3C34-4A82-8D5A-6DF217C7A024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52377297-3C34-4A82-8D5A-6DF217C7A024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52377297-3C34-4A82-8D5A-6DF217C7A024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
