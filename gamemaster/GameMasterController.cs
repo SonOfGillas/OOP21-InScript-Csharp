@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using cards;
-using shared;
 
 namespace gamemaster
 {
-   public interface IGameMasterController
+    public interface IGameMasterController
     {
         public void OnCardPlacing(int indexOfTheCellInTheBoard);
         public void OnEndTurn();
@@ -33,7 +29,7 @@ namespace gamemaster
 
         public GameMasterController()
         {
-            List<Card>  playerDeck = new List<Card>();
+            List<Card> playerDeck = new List<Card>();
             List<Card> aIDeck = new List<Card>();
             _gameMaster = new GameMaster(playerDeck, aIDeck);
             _gameMaster.StartGame();

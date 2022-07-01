@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using cards;
-using shared;
-using drawphasemanager;
-using mainphasemanager;
-using battlephasemanager;
+﻿using System;
 
 namespace gamemaster
 {
@@ -16,18 +11,18 @@ namespace gamemaster
     {
 
         public Player HumanPlayer { get; }
-        public Player AiPlayer { get;  }
+        public Player AiPlayer { get; }
 
         bool isTheAIturn;
 
         public IDrawPhaseManager DrawPhaseManager { get; }
-        public IMainPhaseManager MainPhaseManager { get;}
+        public IMainPhaseManager MainPhaseManager { get; }
         public IBattlePhaseManager BattlePhaseManager { get; }
-        public IMainPhaseManagerIA MainPhaseManagerIA { get;  }
+        public IMainPhaseManagerIA MainPhaseManagerIA { get; }
 
         public GameMaster(List<Card> humanPlayerDeck, List<Card> aiPlayerDeck)
         {
-             new List<Card>(Player.NumCardBoard);
+            new List<Card>(Player.NumCardBoard);
 
             HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
             AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
