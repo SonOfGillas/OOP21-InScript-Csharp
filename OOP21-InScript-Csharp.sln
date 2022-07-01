@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "battlephasemanager", "battl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gamemaster", "gamemaster\gamemaster.csproj", "{5E4F21DF-24ED-4732-AD2D-E9CCEDEBB1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{52377297-3C34-4A82-8D5A-6DF217C7A024}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", "{52377297-3C34-4A82-8D5A-6DF217C7A024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

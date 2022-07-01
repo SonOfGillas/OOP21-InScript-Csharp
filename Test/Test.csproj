@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\cards\cards.csproj" />
     <ProjectReference Include="..\drawphasemanager\drawphasemanager.csproj" />
+    <ProjectReference Include="..\gamemaster\gamemaster.csproj" />
     <ProjectReference Include="..\mainphasemanager\mainphasemanager.csproj" />
     <ProjectReference Include="..\shared\shared.csproj" />
   </ItemGroup>
