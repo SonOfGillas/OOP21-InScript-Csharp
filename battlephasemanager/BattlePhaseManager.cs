@@ -3,10 +3,11 @@ using cards;
 
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace battlephasemanager
 {
-    public struct Optional<T>
+    /*public struct Optional<T>
     {
         public bool HasValue { get; private set; }
         private T value;
@@ -53,7 +54,7 @@ namespace battlephasemanager
         {
             return new Optional<T>(null);
         }
-    }
+    }*/
 
 
     public interface IBattlePhaseManager
@@ -63,19 +64,19 @@ namespace battlephasemanager
     public class BattlePhaseManager : IBattlePhaseManager
     {
         private readonly Player player, enemy;
-        private IList<Optional<Effect>> effectPlayer, effectEnemy;
-        private readonly IList<ActivationEvent> eventTarget = { ActivationEvent.ONATTACKING, ActivationEvent.ONDEFENDING, ActivationEvent.ONDEATH };
+        private IList<Effect> effectPlayer, effectEnemy;
+        private readonly IList<ActivationEvent> eventTarget = new List<ActivationEvent>() { ActivationEvent.ONATTAKING, ActivationEvent.ONDEFENDING, ActivationEvent.ONDEATH };
 
         public BattlePhaseManager(Player player, Player playerAI) {
             this.player = player;
             this.enemy = playerAI;
         }
 
-        private IList<Optional<Effect>> extractEffect(Player target)
+        private IList<Effect> extractEffect(Player target)
         {
             //IList<Optional<Effect>> tmp = new IList();
-            List<Optional<Effect>> tmp = new List<Optional<Effect>>(5);
-            foreach (Optional<Card> card in target.CurrentBoard)
+            List<Effect> tmp = new List<Effect>(5);
+            foreach (Card card in target.CurrentBoard)
             {
                 if (card.HasValue)
                 {
@@ -99,6 +100,11 @@ namespace battlephasemanager
                     tmp.add(card.Empty);
             }
             return tmp;
+        }
+
+        public void startBattle(bool isAITurn)
+        {
+            throw new NotImplementedException();
         }
     }
 }
