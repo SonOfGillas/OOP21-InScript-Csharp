@@ -39,7 +39,7 @@ namespace test
         [TestMethod]
         public void FirstDraw()
         {
-            Assert.AreEqual(19, _humanPlayer.Deck.Count);
+            Assert.AreEqual(20, _humanPlayer.Deck.Count);
         }
     }
 }
