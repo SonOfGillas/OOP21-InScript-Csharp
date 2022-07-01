@@ -1,4 +1,10 @@
-﻿using System;
+﻿using shared;
+using cards;
+using drawphasemanager;
+using mainphasemanager;
+using battlephasemanager;
+
+using System.Collections.Generic;
 
 namespace gamemaster
 {
