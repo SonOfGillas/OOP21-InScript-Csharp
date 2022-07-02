@@ -1,0 +1,108 @@
+﻿using gamemaster;
+using mainphasemanager;
+using shared;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace test
+{
+    [TestClass]
+    class MainPhaseManagerTests
+    {
+
+        public static bool AiTurn = true;
+        public static bool PlayerTurn = false;
+
+        private GameMaster _gameMaster;
+        private IMainPhaseManager _mainPhase;
+        private Player _humanPlayer;
+        private Player _aiPlayer;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            List<Card> deck = new List<Card>();
+            IEnumerable<int> range = Enumerable.Range(0, 20);
+
+            foreach (int i in range)
+            {
+                deck.Add(new Card());
+            }
+
+            _gameMaster = new GameMaster(deck, deck);
+            _mainPhase = _gameMaster.MainPhaseManager;
+            _humanPlayer = _gameMaster.HumanPlayer;
+            _aiPlayer = _gameMaster.AiPlayer;
+
+        }
+
+        [TestMethod]
+        public void NormalPositioning()
+        {
+            _gameMaster.DrawPhaseManager.FirstDraw();
+            _humanPlayer.CurrentMana = GameConst.MaximumMana;
+            _humanPlayer.Mana = GameConst.MaximumMana;
+
+            Assert.AreEqual(3, _humanPlayer.Hand.Count);
+
+            _mainPhase.Positioning(_humanPlayer.Hand.ElementAt(0), 1, MainPhaseManagerTests.PlayerTurn);
+
+            Assert.AreEqual(2, _humanPlayer.Hand.Count);
+        }
+
+        [TestMethod]
+        public void CellFullDontPlace()
+        {
+            _gameMaster.DrawPhaseManager.FirstDraw();
+            _humanPlayer.CurrentMana = GameConst.MaximumMana;
+            _humanPlayer.Mana = GameConst.MaximumMana;
+
+            _mainPhase.Positioning(_humanPlayer.Hand.ElementAt(0), 1, MainPhaseManagerTests.PlayerTurn);
+
+            Assert.AreEqual(2, _humanPlayer.Hand.Count);
+            Assert.AreEqual(true, _mainPhase.CellEmpty);
+
+            _mainPhase.Positioning(_humanPlayer.Hand.ElementAt(0), 1, MainPhaseManagerTests.PlayerTurn);
+
+            Assert.AreEqual(2, _humanPlayer.Hand.Count);
+            Assert.AreEqual(false, _mainPhase.CellEmpty);
+        }
+
+        [TestMethod]
+        public void NotEnoughtManaToPlaceCard()
+        {
+            _gameMaster.DrawPhaseManager.FirstDraw();
+            _gameMaster.DrawPhaseManager.Draw(MainPhaseManagerTests.PlayerTurn);
+
+            bool stop = false;
+            Card cardToPlace = null;
+            while(!stop)
+            {
+
+                foreach (var card in _humanPlayer.Hand)
+                {
+                    if(card.Mana > _humanPlayer.CurrentMana)
+                    {
+                        cardToPlace = card;
+                        stop = true;
+                        break;
+                    }
+                }
+
+                _gameMaster.DrawPhaseManager.DrawWithoutMana(_humanPlayer);
+            }
+
+            int actualHandSize = _humanPlayer.Hand.Count;
+
+            Assert.AreEqual(actualHandSize, _humanPlayer.Hand.Count);
+
+            _mainPhase.Positioning(cardToPlace, 1, MainPhaseManagerTests.PlayerTurn);
+
+            Assert.AreEqual(actualHandSize, _humanPlayer.Hand.Count);
+            Assert.AreEqual(false, _mainPhase.CanPlace);
+        }
+
+    }
+}

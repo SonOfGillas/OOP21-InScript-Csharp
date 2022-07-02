@@ -10,6 +10,8 @@ namespace mainphasemanager
 
     public interface IMainPhaseManager : IPhaseManager
     {
+        bool CanPlace { get; set; }
+        bool CellEmpty { get; set; }
         void Positioning(Card cardToBePositioned, int boardCellIndex, bool isTheAITurn);
 
     }
