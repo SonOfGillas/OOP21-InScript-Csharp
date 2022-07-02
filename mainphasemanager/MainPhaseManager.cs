@@ -77,11 +77,11 @@ namespace mainphasemanager
 
             if (IsCellEmpty(tmpBoard, boardCellIndex))
             {
-                /* cardToBePositioned.SetPlacementRounds(Card.FirstRoundPlaced); */
+                cardToBePositioned.PlacementRounds = GameConst.FirstRoundPlaced;
                 tmpBoard.Insert(boardCellIndex, cardToBePositioned);
 
                 tmpHand.Remove(cardToBePositioned);
-                /* currentPlayer.SetCurrentMana(-cardToBePositioned.Mana); */
+                currentPlayer.Mana = -cardToBePositioned.Mana;
 
             }
         }
@@ -98,18 +98,30 @@ namespace mainphasemanager
                 {
                     Card cardSaved = tmpBoard.ElementAt(index);
 
-                    /* if () Miss Card class to complete this part */
+                    if (cardSaved.Effect != null && cardSaved.Effect.ActivationEvent == ActivationEvent.POSITIONING 
+                        && cardSaved.PlacementRounds <= GameConst.MaximumUseEffect)
+                    {
+
+                        if(player.IsAiPlayer)
+                        {
+                            cardSaved.Effect.UseEffect(_playerAI, _player, index);
+                            cardSaved.PlacementRounds += 1;
+                        }
+                        else
+                        {
+                            cardSaved.Effect.UseEffect(_player, _playerAI, index);
+                            cardSaved.PlacementRounds += 1;
+                        }
+
+                    }
                 }
             }
         }
 
         private bool IsEnoughTheMana(Player player, Card cardToBePositioned)
         {
-            /*
-            CanPlace = player.CurrentMana - cardToBePositioned.Mana >= IMainPhaseManager.NO_ENOUGH_MANA;
+            CanPlace = player.CurrentMana - cardToBePositioned.Mana >= GameConst.NoEnoughMana;
             return CanPlace;
-            */
-            return false;
         }
 
         private bool IsCellEmpty(IList<Card> board, int boardCellIndex)

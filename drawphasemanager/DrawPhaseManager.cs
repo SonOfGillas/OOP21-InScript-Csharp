@@ -84,6 +84,11 @@ namespace drawphasemanager
             }
         }
 
+        public void DrawWithoutMana(Player player)
+        {
+            GeneralDraw(player);
+        }
+
         private void GeneralDraw(Player player)
         {
             IList<Card> tmpDeck = player.Deck;
@@ -97,11 +102,6 @@ namespace drawphasemanager
                 tmpHand.Add(tmpDeck.ElementAt(index));
                 tmpDeck.RemoveAt(index);
             }
-        }
-
-        public void DrawWithoutMana(Player player)
-        {
-            GeneralDraw(player);
         }
 
         private void SelectEventAndPlayer(ActivationEvent event_, Player player) 
@@ -149,7 +149,7 @@ namespace drawphasemanager
             {
                 if (card != null)
                 {
-                    /* card.get set placement */
+                    card.PlacementRounds = card.PlacementRounds + 1;
                 }
             }
         }
