@@ -113,9 +113,19 @@ namespace drawphasemanager
             {
                 if(tmpBoard.ElementAt(pos) != null)
                 {
-                    Card cardSaaved = tmpBoard.ElementAt(pos);
+                    Card cardSaved = tmpBoard.ElementAt(pos);
 
-                    /* if (Card) */
+                    if (cardSaved.Effect != null && cardSaved.Effect.ActivationEvent == event_)
+                    {
+                        if (player.IsAiPlayer)
+                        {
+                            cardSaved.Effect.UseEffect(_playerAI, _player, pos);
+                        }
+                        else
+                        {
+                            cardSaved.Effect.UseEffect(_player, _playerAI, pos);
+                        }
+                    }
                 }
             }
 
