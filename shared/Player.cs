@@ -15,8 +15,8 @@ namespace shared
         public bool IsAiPlayer { get ; }
         public IList<Card> Deck { get ; }
         public IList<Card> Hand  { get ;  }
-        public IList<Card> CurrentBoard { get ; }
-        public int LifePoints { get; } 
+        public IList<Card> CurrentBoard { get; set; }
+        public int LifePoints { get; set; } 
 
         public int Mana
         {
