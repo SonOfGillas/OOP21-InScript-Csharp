@@ -28,10 +28,10 @@ namespace gamemaster
 
         public GameMaster(List<Card> humanPlayerDeck, List<Card> aiPlayerDeck)
         {
-            new List<Card>(Player.NumCardBoard);
+            List<Card> empty = new List<Card>(Player.NumCardBoard) { null, null, null, null, null};
 
-            HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
-            AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, new List<Card>(Player.NumCardBoard), new List<Card>());
+            HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<Card>());
+            AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<Card>());
             isTheAIturn = false;
             DrawPhaseManager = new DrawPhaseManagerImpl(HumanPlayer, AiPlayer);
             MainPhaseManager = new MainPhaseManagerImpl(HumanPlayer, AiPlayer);

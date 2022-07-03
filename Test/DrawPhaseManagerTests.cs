@@ -22,15 +22,17 @@ namespace test
         [TestInitialize]
         public void TestInitialize()
         {
-            List<Card> deck = new List<Card>();
+            List<Card> deck1 = new List<Card>();
+            List<Card> deck2 = new List<Card>();
             IEnumerable<int> range = Enumerable.Range(0, 20);
 
             foreach (int i in range)
             {
-                deck.Add(new Card());
+                deck1.Add(new Card());
+                deck2.Add(new Card());
             }
 
-            _gameMaster = new GameMaster(deck, deck);
+            _gameMaster = new GameMaster(deck1, deck2);
             _drawPhase = _gameMaster.DrawPhaseManager;
             _humanPlayer = _gameMaster.HumanPlayer;
             _aiPlayer = _gameMaster.AiPlayer;
@@ -56,11 +58,11 @@ namespace test
             Assert.AreEqual(20, _aiPlayer.Deck.Count);
 
             _drawPhase.Draw(DrawPhaseManagerTests.AiTurn);
-            Assert.AreEqual(19, _aiPlayer);
+            Assert.AreEqual(19, _aiPlayer.Deck.Count);
             Assert.AreEqual(1, _aiPlayer.Hand.Count);
 
             _drawPhase.Draw(DrawPhaseManagerTests.PlayerTurn);
-            Assert.AreEqual(19, _humanPlayer);
+            Assert.AreEqual(19, _humanPlayer.Deck.Count);
             Assert.AreEqual(1, _humanPlayer.Hand.Count);
         }
 

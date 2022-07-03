@@ -9,7 +9,7 @@ namespace battlephasemanager
 
     public interface IBattlePhaseManager
     {
-        public void startBattle(bool isAITurn);
+        public void StartBattle(bool isAITurn);
     }
     public class BattlePhaseManager : IBattlePhaseManager
     {
@@ -127,7 +127,7 @@ namespace battlephasemanager
             _effectEnemy = extractEffect(_enemy);
         }
 
-        public void startBattle(bool isAITurn)
+        public void StartBattle(bool isAITurn)
         {
             HandleEffect();
             if (isAITurn)

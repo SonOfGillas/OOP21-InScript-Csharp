@@ -53,7 +53,7 @@ namespace drawphasemanager
         public void FirstDraw()
         {
 
-            IEnumerable<int> range = Enumerable.Range(0, IDrawPhaseManager.InitialCardInTheHand);
+            IEnumerable<int> range = Enumerable.Range(1, IDrawPhaseManager.InitialCardInTheHand);
 
             foreach(var elem in range)
             {
@@ -74,7 +74,7 @@ namespace drawphasemanager
                 GeneralDraw(_playerAI);
 
                 HandleEffect();
-            } else if (_player.Deck.Count > 0)
+            } else if (!_isTheAITurn && _player.Deck.Count > 0)
             {
                 UpdatePlacementRounds(_player);
                 RestoreMana(_player);
@@ -135,7 +135,7 @@ namespace drawphasemanager
         {
             if (player.Mana + GameConst.ManaPlusOne <= GameConst.MaximumMana)
             {
-                player.Mana = GameConst.MaximumMana;
+                player.Mana = GameConst.ManaPlusOne;
             }
 
             player.CurrentMana = player.Mana - player.CurrentMana;

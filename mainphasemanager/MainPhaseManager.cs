@@ -92,11 +92,11 @@ namespace mainphasemanager
         {
             IList<Card> tmpBoard = player.CurrentBoard;
 
-            IEnumerable<int> range = Enumerable.Range(0, tmpBoard.Count);
+            IEnumerable<int> range = Enumerable.Range(0, tmpBoard.Count - 1);
 
             foreach (var index in range)
             {
-                if (tmpBoard.ElementAt(index) != null)
+                if (tmpBoard.ElementAt(index) != null && index <= tmpBoard.Count - 1)
                 {
                     Card cardSaved = tmpBoard.ElementAt(index);
 
@@ -128,7 +128,8 @@ namespace mainphasemanager
 
         private bool IsCellEmpty(IList<Card> board, int boardCellIndex)
         {
-            if (board.ElementAt(boardCellIndex) == null)
+            Card card = board.ElementAt(boardCellIndex);
+            if (card == null)
             {
                 CellEmpty = true;
             }
