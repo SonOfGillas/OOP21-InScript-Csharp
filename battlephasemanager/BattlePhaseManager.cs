@@ -1,61 +1,11 @@
 ﻿using shared;
 using cards;
-
 using System.Collections.Generic;
 using System.Linq;
 using System;
 
 namespace battlephasemanager
 {
-    /*public struct Optional<T>
-    {
-        public bool HasValue { get; private set; }
-        private T value;
-        public T Value
-        {
-            get
-            {
-                if (HasValue)
-                    return value;
-                else
-                    throw new InvalidOperationException();
-            }
-        }
-
-        public Optional(T value)
-        {
-            this.value = value;
-            HasValue = true;
-        }
-
-        public static explicit operator T(Optional<T> optional)
-        {
-            return optional.Value;
-        }
-        public static implicit operator Optional<T>(T value)
-        {
-            return new Optional<T>(value);
-        }
-        public override bool Equals(object obj)
-        {
-            if (obj is Optional<T>)
-                return this.Equals((Optional<T>)obj);
-            else
-                return false;
-        }
-        public bool Equals(Optional<T> other)
-        {
-            if (HasValue && other.HasValue)
-                return object.Equals(value, other.value);
-            else
-                return HasValue == other.HasValue;
-        }
-        public Optional<T> Empty()
-        {
-            return new Optional<T>(null);
-        }
-    }*/
-
 
     public interface IBattlePhaseManager
     {
@@ -63,48 +13,131 @@ namespace battlephasemanager
     }
     public class BattlePhaseManager : IBattlePhaseManager
     {
-        private readonly Player player, enemy;
-        private IList<Effect> effectPlayer, effectEnemy;
-        private readonly IList<ActivationEvent> eventTarget = new List<ActivationEvent>() { ActivationEvent.ONATTAKING, ActivationEvent.ONDEFENDING, ActivationEvent.ONDEATH };
+        private readonly Player _player, _enemy;
+        private IList<IEffect> _effectPlayer, _effectEnemy;
+        private readonly IList<ActivationEvent> _eventTarget = new List<ActivationEvent>() { ActivationEvent.ONATTAKING, ActivationEvent.ONDEFENDING, ActivationEvent.ONDEATH };
 
         public BattlePhaseManager(Player player, Player playerAI) {
-            this.player = player;
-            this.enemy = playerAI;
+            this._player = player;
+            this._enemy = playerAI;
         }
 
-        private IList<Effect> extractEffect(Player target)
+        private IList<IEffect> extractEffect(Player target)
         {
             //IList<Optional<Effect>> tmp = new IList();
-            List<Effect> tmp = new List<Effect>(5);
+            List<IEffect> tmp = new List<IEffect>(5);
             foreach (Card card in target.CurrentBoard)
             {
-                if (card.HasValue)
+                if (card != null)
                 {
-                    //if(card.Value.)
-                    //tmp.add(card.Value.);
+                    if (card.Effect != null && _eventTarget.Contains(card.Effect.ActivationEvent))
+                    {
+                        tmp.Add(card.Effect);
+                    }
+                    else
+                        tmp.Add(null);
                 }
                 else
-                    tmp.add(card.Empty);
+                    tmp.Add(null);
             }
             return tmp;
         }
 
-        private IList<Optional<Card>> CheckDead(IList<Optional<Card>> battleBoard)
+        private IList<Card> CheckDead(IList<Card> battleBoard)
         {
-            List<Optional<Card>> tmp = new List<Optional<Card>>(5);
-            foreach (Optional<Card> card in battleBoard)
+            List<Card> tmp = new List<Card>(5);
+            foreach (Card card in battleBoard)
             {
-                if (card.HasValue && card.Value.Attack > 0)
-                    tmp.add(card);
+                if (card != null && card.LifePoints > 0)
+                    tmp.Add(card);
                 else
-                    tmp.add(card.Empty);
+                    tmp.Add(null);
             }
             return tmp;
+        }
+
+        private IList<Card> HandleBattle(Player protagonist, Player antagonist, bool isAITurn)
+        {
+            List<Card> tmp = new List<Card>(5);
+            for(int i = 0; i < protagonist.CurrentBoard.Count; i++)
+            {
+                if(protagonist.CurrentBoard.ElementAt(i) != null && protagonist.CurrentBoard.ElementAt(i).LifePoints > 0)
+                {
+                    if(antagonist.CurrentBoard.ElementAt(i) != null)
+                    {
+                        antagonist.CurrentBoard.ElementAt(i).LifePoints = antagonist.CurrentBoard.ElementAt(i).LifePoints 
+                            - protagonist.CurrentBoard.ElementAt(i).Attack;
+                        if (isAITurn)
+                        {
+                            if(_effectEnemy.ElementAt(i) != null && _effectEnemy.ElementAt(i).ActivationEvent 
+                                == ActivationEvent.ONATTAKING)
+                            {
+                                _effectEnemy.ElementAt(i).UseEffect(protagonist, antagonist, i);
+                            }
+
+                            if (_effectPlayer.ElementAt(i) != null && _effectPlayer.ElementAt(i).ActivationEvent
+                                == ActivationEvent.ONDEFENDING)
+                            {
+                                _effectPlayer.ElementAt(i).UseEffect(protagonist, antagonist, i);
+                            }
+                        }
+                        else
+                        {
+                            if (_effectPlayer.ElementAt(i) != null && _effectPlayer.ElementAt(i).ActivationEvent
+                                == ActivationEvent.ONATTAKING)
+                            {
+                                _effectPlayer.ElementAt(i).UseEffect(protagonist, antagonist, i);
+                            }
+
+                            if (_effectEnemy.ElementAt(i) != null && _effectEnemy.ElementAt(i).ActivationEvent
+                                == ActivationEvent.ONDEFENDING)
+                            {
+                                _effectEnemy.ElementAt(i).UseEffect(protagonist, antagonist, i);
+                            }
+
+                        }
+
+                        if(antagonist.CurrentBoard.ElementAt(i) != null && 
+                            antagonist.CurrentBoard.ElementAt(i).LifePoints <= 0 && 
+                            antagonist.CurrentBoard.ElementAt(i).Effect != null &&
+                            antagonist.CurrentBoard.ElementAt(i).Effect.ActivationEvent == ActivationEvent.ONDEATH) 
+                        {
+                            antagonist.CurrentBoard.ElementAt(i).Effect.UseEffect(antagonist, protagonist, i);
+                        }
+                        tmp.Add(antagonist.CurrentBoard.ElementAt(i));
+                    }
+                    else
+                    {
+                        antagonist.LifePoints = antagonist.LifePoints - protagonist.CurrentBoard.ElementAt(i).Attack;
+                        protagonist.LifePoints = protagonist.LifePoints + protagonist.CurrentBoard.ElementAt(i).Attack;
+                        tmp.Add(null);
+                    }
+                }
+                else
+                {
+                    tmp.Add(antagonist.CurrentBoard.ElementAt(i));
+                }
+            }
+            return CheckDead(tmp);
+        }
+
+        public void HandleEffect()
+        {
+            _effectPlayer = extractEffect(_player);
+            _effectEnemy = extractEffect(_enemy);
         }
 
         public void startBattle(bool isAITurn)
         {
-            throw new NotImplementedException();
+            HandleEffect();
+            if (isAITurn)
+            {
+                _player.CurrentBoard = HandleBattle(_enemy, _player, isAITurn);
+            }
+            else
+            {
+                _enemy.CurrentBoard = HandleBattle(_player, _enemy, isAITurn);
+            }
         }
     }
 }
