@@ -6,7 +6,7 @@ using shared;
 
 namespace effects
 {
-    class Effect : IEffect
+    public class Effect : IEffect
     {
         public ActivationEvent ActivationEvent => throw new NotImplementedException();
 
