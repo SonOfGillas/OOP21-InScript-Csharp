@@ -6,7 +6,7 @@ using System.Text;
 
 namespace shared
 {
-    internal class Draw : AbstactEffect
+    internal class Draw : AbstractEffect
     {
        public Draw() : base(effectName: "Draw", effectDescriprion: "When this card enters the battlefield, the owner draws a card", imageEffectURL: "effects/effect_draw.png") // indirizzo dell immagine usata del progetto java
         {
@@ -18,7 +18,7 @@ namespace shared
 
         public override void UseEffect(Player cardOwner, Player enemy, int boardPosition)
         {
-            new DrawPhaseManagerImpl(cardOwner, enemy).drawWhitoutMana(cardOwner);
+            new DrawPhaseManagerImpl(cardOwner, enemy).DrawWhitoutMana(cardOwner);
         }
     }
 }
