@@ -100,7 +100,35 @@ namespace test
         [TestMethod]
         public void PlaceaDrawEffectCard()
         {
-            // TODO
+
+            BaseCard drawCard = null;
+            bool stop = false;
+            _drawPhase.FirstDraw();
+            _humanPlayer.CurrentMana = GameConst.MaximumMana;
+            _humanPlayer.Mana = GameConst.MaximumMana;
+            
+            do
+            {
+
+                foreach(var cardSaved in _humanPlayer.Hand)
+                {
+                    if (cardSaved.Effect != null && cardSaved.Effect.NameEffect == "Draw")
+                    {
+                        drawCard = cardSaved;
+                        stop = true;
+                        break;
+                    }
+                }
+
+                _drawPhase.Draw(DrawPhaseManagerTests.PlayerTurn);
+
+            } while (!stop);
+
+            int actualDeckSize = _humanPlayer.Deck.Count;
+
+            _gameMaster.MainPhaseManager.Positioning(drawCard, 1, DrawPhaseManagerTests.PlayerTurn);
+            Assert.AreEqual(actualDeckSize - 1, _humanPlayer.Deck.Count);
+            
         }
     }
 }

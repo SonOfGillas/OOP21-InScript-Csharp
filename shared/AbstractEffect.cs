@@ -21,11 +21,21 @@ namespace shared
 
         public virtual ActivationEvent ActivationEvent => throw new NotImplementedException();
 
-        public string NameEffect => throw new NotImplementedException();
+        public string NameEffect
+        {
+            get => _effectName;
+        }
 
-        public string DescriptionEffect => throw new NotImplementedException();
+        public string DescriptionEffect
+        {
+            get => _effectDescription;
+        }
 
-        public string ImageEffectURL { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ImageEffectURL 
+        { 
+            get => _imageEffectURL; 
+            set => _imageEffectURL = value; 
+        }
 
         public virtual void UseEffect(Player cardOwner, Player enemy, int boardPosition)
         {
