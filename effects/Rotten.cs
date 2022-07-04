@@ -7,7 +7,7 @@ using cards;
 
 namespace shared
 {
-    internal class Rotten : AbstractEffect 
+    public class Rotten : AbstractEffect 
     {
         public Rotten() : base(effectName: "Rotten", effectDescriprion: "When this card's life total drops to zero, it begins to rot, leaving Rot in the field", imageEffectURL: "effects/effect_rotten.png") // indirizzo dell immagine usata del progetto java
         {
