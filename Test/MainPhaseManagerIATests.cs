@@ -5,6 +5,7 @@ using shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace test
 {
@@ -72,7 +73,7 @@ namespace test
         {
             int numberOfCard = 0;
 
-            foreach (BaseCard card in _AiPlayer.Hand)
+            foreach (BaseCard card in _AiPlayer.CurrentBoard)
             {
                 if (card != null) { numberOfCard++; }
             }
