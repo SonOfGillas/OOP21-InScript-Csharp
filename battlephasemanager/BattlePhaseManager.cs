@@ -26,7 +26,7 @@ namespace battlephasemanager
         {
             //IList<Optional<Effect>> tmp = new IList();
             List<IEffect> tmp = new List<IEffect>(5);
-            foreach (Card card in target.CurrentBoard)
+            foreach (BaseCard card in target.CurrentBoard)
             {
                 if (card != null)
                 {
@@ -43,10 +43,10 @@ namespace battlephasemanager
             return tmp;
         }
 
-        private IList<Card> CheckDead(IList<Card> battleBoard)
+        private IList<BaseCard> CheckDead(IList<BaseCard> battleBoard)
         {
-            List<Card> tmp = new List<Card>(5);
-            foreach (Card card in battleBoard)
+            List<BaseCard> tmp = new List<BaseCard>(5);
+            foreach (BaseCard card in battleBoard)
             {
                 if (card != null && card.LifePoints > 0)
                     tmp.Add(card);
@@ -56,9 +56,9 @@ namespace battlephasemanager
             return tmp;
         }
 
-        private IList<Card> HandleBattle(Player protagonist, Player antagonist, bool isAITurn)
+        private IList<BaseCard> HandleBattle(Player protagonist, Player antagonist, bool isAITurn)
         {
-            List<Card> tmp = new List<Card>(5);
+            List<BaseCard> tmp = new List<BaseCard>(5);
             for(int i = 0; i < protagonist.CurrentBoard.Count; i++)
             {
                 if(protagonist.CurrentBoard.ElementAt(i) != null && protagonist.CurrentBoard.ElementAt(i).LifePoints > 0)

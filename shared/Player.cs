@@ -13,9 +13,9 @@ namespace shared
         private int _currentMana;
 
         public bool IsAiPlayer { get ; }
-        public IList<Card> Deck { get ; }
-        public IList<Card> Hand  { get ;  }
-        public IList<Card> CurrentBoard { get; set; }
+        public IList<BaseCard> Deck { get ; }
+        public IList<BaseCard> Hand  { get ;  }
+        public IList<BaseCard> CurrentBoard { get; set; }
         public int LifePoints { get; set; } 
 
         public int Mana
@@ -30,7 +30,7 @@ namespace shared
             set => _currentMana = _currentMana + value;
         }
 
-        public Player(bool isAiplayer,  List<Card> deck,  int lifePoints,  int mana,  int currentMana,  List<Card> currentBoard,  List<Card> hand) {
+        public Player(bool isAiplayer,  List<BaseCard> deck,  int lifePoints,  int mana,  int currentMana,  List<BaseCard> currentBoard,  List<BaseCard> hand) {
             IsAiPlayer= isAiplayer;
             Deck = deck;
             LifePoints = lifePoints;
