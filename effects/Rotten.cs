@@ -14,7 +14,7 @@ namespace shared
 
         }
 
-        public override ActivationEvent ActivationEvent { get => ActivationEvent.POSITIONING; }
+        public override ActivationEvent ActivationEvent { get => ActivationEvent.ONDEATH; }
 
 
         public override void UseEffect(Player cardOwner, Player enemy, int boardPosition)
