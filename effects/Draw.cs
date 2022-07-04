@@ -18,7 +18,7 @@ namespace shared
 
         public override void UseEffect(Player cardOwner, Player enemy, int boardPosition)
         {
-            new DrawPhaseManagerImpl(cardOwner, enemy).DrawWhitoutMana(cardOwner);
+            new DrawPhaseManagerImpl(cardOwner, enemy).DrawWithoutMana(cardOwner);
         }
     }
 }
