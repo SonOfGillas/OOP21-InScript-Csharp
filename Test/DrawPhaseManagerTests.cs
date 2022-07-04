@@ -1,6 +1,7 @@
 using gamemaster;
 using drawphasemanager;
 using shared;
+using effects;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -28,8 +29,8 @@ namespace test
 
             foreach (int i in range)
             {
-                deck1.Add(new BaseCard());
-                deck2.Add(new BaseCard());
+                deck1.Add(new BaseCard("cane", 1, 1, 2, "cane.png", new Draw()));
+                deck2.Add(new BaseCard("cane", 1, 1, 2, "cane.png", new Draw()));
             }
 
             _gameMaster = new GameMaster(deck1, deck2);

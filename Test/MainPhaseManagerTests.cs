@@ -27,7 +27,7 @@ namespace test
 
             foreach (int i in range)
             {
-                deck.Add(new BaseCard());
+                deck.Add(new BaseCard("cane", 1, 1, 2, "cane.png", null));
             }
 
             _gameMaster = new GameMaster(deck, deck);
@@ -67,8 +67,7 @@ namespace test
             Assert.AreEqual(2, _humanPlayer.Hand.Count);
             Assert.AreEqual(false, _mainPhase.CellEmpty);
         }
-        /* DA SCOMMENTARE QUANDO SARANNO STATE CREATE EFFETTIVAMENTE DELLE
-         * CARTE CON DELLE STAT.
+
         [TestMethod]
         public void NotEnoughtManaToPlaceCard()
         {
@@ -102,6 +101,6 @@ namespace test
             Assert.AreEqual(actualHandSize, _humanPlayer.Hand.Count);
             Assert.AreEqual(false, _mainPhase.CanPlace);
         }
-        */
+        
     }
 }
