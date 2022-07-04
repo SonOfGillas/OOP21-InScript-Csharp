@@ -20,7 +20,7 @@ namespace test
 
             foreach (int i in range)
             {
-                deck.Add(new BaseCard());
+                deck.Add(new BaseCard("cane", 1,1,1,"",null));
             }
 
             _gameMaster = new GameMaster(deck, deck);
