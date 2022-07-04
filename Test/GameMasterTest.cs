@@ -15,12 +15,12 @@ namespace test
         [TestInitialize]
         public void TestInitialize()
         {
-            List<Card> deck = new List<Card>();
+            List<BaseCard> deck = new List<BaseCard>();
             IEnumerable<int> range = Enumerable.Range(0, 20);
 
             foreach (int i in range)
             {
-                deck.Add(new Card());
+                deck.Add(new BaseCard());
             }
 
             _gameMaster = new GameMaster(deck, deck);
@@ -46,11 +46,11 @@ namespace test
             Assert.AreEqual(GameConst.InitialNumCardsInHand + 1, _gameMaster.AiPlayer.Hand.Count + NumberOfCard(_gameMaster.AiPlayer.CurrentBoard));
         }
 
-        private int NumberOfCard(IList<Card> list)
+        private int NumberOfCard(IList<BaseCard> list)
         {
             int numberOfCard = 0;
 
-            foreach (Card card in list)
+            foreach (BaseCard card in list)
             {
                 if (card != null) { numberOfCard++; }
             }

@@ -12,7 +12,7 @@ namespace mainphasemanager
     {
         bool CanPlace { get; set; }
         bool CellEmpty { get; set; }
-        void Positioning(Card cardToBePositioned, int boardCellIndex, bool isTheAITurn);
+        void Positioning(BaseCard cardToBePositioned, int boardCellIndex, bool isTheAITurn);
 
     }
     public class MainPhaseManagerImpl : IMainPhaseManager
@@ -54,7 +54,7 @@ namespace mainphasemanager
 
         }
 
-        public void Positioning(Card cardToBePositioned, int boardCellIndex, bool isTheAITurn)
+        public void Positioning(BaseCard cardToBePositioned, int boardCellIndex, bool isTheAITurn)
         {
             _isTheAITurn = isTheAITurn;
 
@@ -72,10 +72,10 @@ namespace mainphasemanager
             }
         }
 
-        private void PlayerPositioning(Player currentPlayer, Card cardToBePositioned, int boardCellIndex)
+        private void PlayerPositioning(Player currentPlayer, BaseCard cardToBePositioned, int boardCellIndex)
         {
-            IList<Card> tmpBoard = currentPlayer.CurrentBoard;
-            IList<Card> tmpHand = currentPlayer.Hand;
+            IList<BaseCard> tmpBoard = currentPlayer.CurrentBoard;
+            IList<BaseCard> tmpHand = currentPlayer.Hand;
 
             if (IsCellEmpty(tmpBoard, boardCellIndex))
             {
@@ -90,7 +90,7 @@ namespace mainphasemanager
 
         private void ActiveEvent(Player player)
         {
-            IList<Card> tmpBoard = player.CurrentBoard;
+            IList<BaseCard> tmpBoard = player.CurrentBoard;
 
             IEnumerable<int> range = Enumerable.Range(0, tmpBoard.Count - 1);
 
@@ -98,7 +98,7 @@ namespace mainphasemanager
             {
                 if (tmpBoard.ElementAt(index) != null && index <= tmpBoard.Count - 1)
                 {
-                    Card cardSaved = tmpBoard.ElementAt(index);
+                    BaseCard cardSaved = tmpBoard.ElementAt(index);
 
                     if (cardSaved.Effect != null && cardSaved.Effect.ActivationEvent == ActivationEvent.POSITIONING 
                         && cardSaved.PlacementRounds <= GameConst.MaximumUseEffect)
@@ -120,15 +120,15 @@ namespace mainphasemanager
             }
         }
 
-        private bool IsEnoughTheMana(Player player, Card cardToBePositioned)
+        private bool IsEnoughTheMana(Player player, BaseCard cardToBePositioned)
         {
             CanPlace = player.CurrentMana - cardToBePositioned.Mana >= GameConst.NoEnoughMana;
             return CanPlace;
         }
 
-        private bool IsCellEmpty(IList<Card> board, int boardCellIndex)
+        private bool IsCellEmpty(IList<BaseCard> board, int boardCellIndex)
         {
-            Card card = board.ElementAt(boardCellIndex);
+            BaseCard card = board.ElementAt(boardCellIndex);
             if (card == null)
             {
                 CellEmpty = true;

@@ -26,12 +26,12 @@ namespace gamemaster
         public IBattlePhaseManager BattlePhaseManager { get; }
         public IMainPhaseManagerIA MainPhaseManagerIA { get; }
 
-        public GameMaster(List<Card> humanPlayerDeck, List<Card> aiPlayerDeck)
+        public GameMaster(List<BaseCard> humanPlayerDeck, List<BaseCard> aiPlayerDeck)
         {
-            List<Card> empty = new List<Card>(Player.NumCardBoard) { null, null, null, null, null};
+            List<BaseCard> empty = new List<BaseCard>(Player.NumCardBoard) { null, null, null, null, null};
 
-            HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<Card>());
-            AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<Card>());
+            HumanPlayer = new Player(false, humanPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<BaseCard>());
+            AiPlayer = new Player(true, aiPlayerDeck, GameConst.DefaultPlayerLife, GameConst.InitialMana, GameConst.InitialMana, empty, new List<BaseCard>());
             isTheAIturn = false;
             DrawPhaseManager = new DrawPhaseManagerImpl(HumanPlayer, AiPlayer);
             MainPhaseManager = new MainPhaseManagerImpl(HumanPlayer, AiPlayer);

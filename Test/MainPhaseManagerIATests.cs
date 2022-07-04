@@ -19,12 +19,12 @@ namespace test
         [TestInitialize]
         public void TestInitialize()
         {
-            List<Card> deck = new List<Card>();
+            List<BaseCard> deck = new List<BaseCard>();
             IEnumerable<int> range = Enumerable.Range(0, 20);
 
             foreach (int i in range)
             {
-                deck.Add(new Card());
+                deck.Add(new BaseCard());
             }
 
             _gameMaster = new GameMaster(deck, deck);
@@ -60,7 +60,7 @@ namespace test
         private bool AiHavePlacableCardInHand()
         {
 
-            foreach (Card card in _AiPlayer.Hand)
+            foreach (BaseCard card in _AiPlayer.Hand)
             {
                 if(card.Mana <= _AiPlayer.CurrentMana) { return true; }
             }
@@ -72,7 +72,7 @@ namespace test
         {
             int numberOfCard = 0;
 
-            foreach (Card card in _AiPlayer.Hand)
+            foreach (BaseCard card in _AiPlayer.Hand)
             {
                 if (card != null) { numberOfCard++; }
             }

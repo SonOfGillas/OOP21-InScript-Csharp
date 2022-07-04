@@ -1,8 +1,5 @@
 ﻿using cards;
-using System;
 using drawphasemanager;
-using System.Collections.Generic;
-using System.Text;
 
 namespace shared
 {

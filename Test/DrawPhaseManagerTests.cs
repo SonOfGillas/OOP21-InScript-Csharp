@@ -22,14 +22,14 @@ namespace test
         [TestInitialize]
         public void TestInitialize()
         {
-            List<Card> deck1 = new List<Card>();
-            List<Card> deck2 = new List<Card>();
+            List<BaseCard> deck1 = new List<BaseCard>();
+            List<BaseCard> deck2 = new List<BaseCard>();
             IEnumerable<int> range = Enumerable.Range(0, 20);
 
             foreach (int i in range)
             {
-                deck1.Add(new Card());
-                deck2.Add(new Card());
+                deck1.Add(new BaseCard());
+                deck2.Add(new BaseCard());
             }
 
             _gameMaster = new GameMaster(deck1, deck2);

@@ -17,8 +17,8 @@ namespace gamemaster
         private GameMaster _gameMaster;
         private Player _humanPlayer;
         private Player _aiPlayer;
-        public Card? SelectedCardToPlace { get; set; }
-        public Card? SelectedCardToShow { get; set; }
+        public BaseCard? SelectedCardToPlace { get; set; }
+        public BaseCard? SelectedCardToShow { get; set; }
         public Player HumanPlayer
         {
             get => _humanPlayer;
@@ -30,8 +30,8 @@ namespace gamemaster
 
         public GameMasterController()
         {
-            List<Card> playerDeck = new List<Card>();
-            List<Card> aIDeck = new List<Card>();
+            List<BaseCard> playerDeck = new List<BaseCard>();
+            List<BaseCard> aIDeck = new List<BaseCard>();
             _gameMaster = new GameMaster(playerDeck, aIDeck);
             _gameMaster.StartGame();
 

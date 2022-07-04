@@ -34,7 +34,7 @@ namespace mainphasemanager
             {
                 do
                 {
-                    Card cardToPlace = GetMostExpensivePlacebleCard();
+                    BaseCard cardToPlace = GetMostExpensivePlacebleCard();
                     if (cardToPlace != null)
                     {
                         _mainPhaseManager.Positioning(cardToPlace, IndexOfTheDungerousEnemyCardNotAlreadyCovered(), true);
@@ -50,7 +50,7 @@ namespace mainphasemanager
         private int NumberOfEmptyBoardCell()
         {
             int emptyCell = 0;
-            foreach (Card card in _playerAI.CurrentBoard)
+            foreach (BaseCard card in _playerAI.CurrentBoard)
             {
                 if (card == null)
                 {
@@ -61,12 +61,12 @@ namespace mainphasemanager
             return emptyCell;
         }
 
-        private Card GetMostExpensivePlacebleCard()
+        private BaseCard GetMostExpensivePlacebleCard()
         {
-            Card mostExpensiveCard = null;
+            BaseCard mostExpensiveCard = null;
             _cheaperPlacableCard = GameConst.MaximumMana + 1;
 
-            foreach (Card card in _playerAI.Hand)
+            foreach (BaseCard card in _playerAI.Hand)
             {
                 if (mostExpensiveCard != null)
                 {
@@ -97,7 +97,7 @@ namespace mainphasemanager
 
             int dungerousCardAttack = _player.CurrentBoard.ElementAt(indexOfTheDungerous) != null ? _player.CurrentBoard.ElementAt(indexOfTheDungerous).Attack : 0;
 
-            foreach (Card card in _player.CurrentBoard)
+            foreach (BaseCard card in _player.CurrentBoard)
             {
                 if (card != null && card.Attack > dungerousCardAttack && _playerAI.CurrentBoard.ElementAt(_player.CurrentBoard.IndexOf(card)) == null)
                 {

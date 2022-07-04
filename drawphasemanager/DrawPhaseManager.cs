@@ -91,8 +91,8 @@ namespace drawphasemanager
 
         private void GeneralDraw(Player player)
         {
-            IList<Card> tmpDeck = player.Deck;
-            IList<Card> tmpHand = player.Hand;
+            IList<BaseCard> tmpDeck = player.Deck;
+            IList<BaseCard> tmpHand = player.Hand;
 
             if (tmpDeck.Count > IDrawPhaseManager.NoMoreCard)
             {
@@ -107,13 +107,13 @@ namespace drawphasemanager
         private void SelectEventAndPlayer(ActivationEvent event_, Player player) 
         {
 
-            IList<Card> tmpBoard = player.CurrentBoard;
+            IList<BaseCard> tmpBoard = player.CurrentBoard;
 
             for (int pos = 0; pos <= tmpBoard.Count - 1; pos++)
             {
                 if(tmpBoard.ElementAt(pos) != null)
                 {
-                    Card cardSaved = tmpBoard.ElementAt(pos);
+                    BaseCard cardSaved = tmpBoard.ElementAt(pos);
 
                     if (cardSaved.Effect != null && cardSaved.Effect.ActivationEvent == event_)
                     {
@@ -143,7 +143,7 @@ namespace drawphasemanager
 
         private void UpdatePlacementRounds(Player player)
         {
-            IList<Card> tmpBoard = player.CurrentBoard;
+            IList<BaseCard> tmpBoard = player.CurrentBoard;
 
             foreach (var card in tmpBoard)
             {
